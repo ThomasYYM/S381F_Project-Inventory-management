@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Main Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    a {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <p>Welcome, <%= username %>!</p>
+  <a href="/find" role="button">find</a>
+  <a href="/logout" role="button">Logout</a>
+</body>
+</html>

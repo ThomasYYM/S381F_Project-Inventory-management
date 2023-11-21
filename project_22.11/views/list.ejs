@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            th {
+                background-color: #f2f2f2;
+            }
+
+            label {
+                display: inline-block;
+                width: 100px;
+                margin-bottom: 10px;
+            }
+
+            input[type="text"] {
+                width: 200px;
+                margin-bottom: 10px;
+            }
+
+            button[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+            }
+
+            button[type="submit"]:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Inventory (<%= inventory.length %>)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item ID</th>
+                    <th>Item Name</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (var b of inventory) { %>
+                <tr>
+                    <td><%= b.itemID %></td>
+                    <td><%= b.itemName %></td>
+                    <td>
+                           <form action="/edit" method="POST">
+                            <input type="hidden" name="itemID" value="<%= b.itemID %>">
+                            <button type="submit">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/delete" method="POST">
+                            <input type="hidden" name="_id" value="<%= b._id %>">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <form action="/add" method="POST">
+            <label for="itemID">Item ID:</label>
+            <input type="text" name="itemID" id="itemID">
+            <label for="itemName">Item Name:</label>
+            <input type="text" name="itemName" id="itemName">
+            <button type="submit">Add Item</button>
+        </form>
+    </body>
+</html>

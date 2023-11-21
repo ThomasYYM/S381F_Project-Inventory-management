@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <H2>Booking Details</H2><hr>
+        <p>Booking ID: <%= inventory.itemID %></p>
+        
+
+        <% if (inventory.photo) { %>
+            <img src="data:image/jpg;base64, <%= inventory.photo %>"><br>
+        <% } %>
+
+        <a href="/edit?_id=<%= inventory._id %>">edit</a><br>
+        <a href="/">home</a>
+    </body>
+</html>
